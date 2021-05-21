@@ -85,7 +85,7 @@ fnExcelReport();
     for (j = 0; j < tab.rows.length; j++) {
         rowInnerHtml = tab.rows[j].innerHTML;
 
-        flag = rowInnerHtml.indexOf("Foil") === -1;
+        flag = rowInnerHtml.indexOf("Foil") !== -1;
         console.log(flag);
         if (flag) {
         	tab_text = tab_text + rowInnerHtml + "</tr>";
