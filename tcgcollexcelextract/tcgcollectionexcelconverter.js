@@ -2,6 +2,7 @@
 *CHROME OR FIREFOX ONLY
 * Steps:
 * 1) Go to the tcgplayer collection link and sort it
+***NOTE: you can extract nonfoils only by pasting lines 45-49 and replacing line 27
 * 2) Copy everything between dotted lines below
 * 3) Select address bar where tcgplayer url is and press ctrl + a, then type- 
 *     javascript:
@@ -22,10 +23,8 @@ function fnExcelReport() {
     tab = tabs[0];
     for (j = 0; j < tab.rows.length; j++) {
         rowInnerHtml = tab.rows[j].innerHTML;
-        flag = rowInnerHtml.indexOf("Foil") === -1;
-        console.log(flag);
-        if (flag)
-            tab_text = tab_text + rowInnerHtml + "</tr>";
+
+        tab_text = tab_text + rowInnerHtml + "</tr>";
     }
 
     tab_text = tab_text + "</table>";
@@ -43,3 +42,8 @@ fnExcelReport();
 
 
 ----------------------------------------------------------------------------
+        flag = rowInnerHtml.indexOf("Foil") === -1;
+        console.log(flag);
+        if (flag) {
+        	tab_text = tab_text + rowInnerHtml + "</tr>";
+        }
