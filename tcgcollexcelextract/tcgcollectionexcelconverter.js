@@ -1,8 +1,9 @@
 /*
-*Steps:
-* 1) Go to the tcgplayer collect link and sort it
+*CHROME OR FIREFOX ONLY
+* Steps:
+* 1) Go to the tcgplayer collection link and sort it
 * 2) Copy everything between dotted lines below
-* 3) select address bar where tcgplayer url is and press ctrl + a, then type- 
+* 3) Select address bar where tcgplayer url is and press ctrl + a, then type- 
 *     javascript:
 * 4) press ctrl + v
 * 5) press enter, download should start!
@@ -32,18 +33,7 @@ function fnExcelReport() {
     tab_text = tab_text.replace(/<img[^>]*>/gi, "");
     tab_text = tab_text.replace(/<input[^>]*>|<\/input>/gi, "");
 
-    var ua = window.navigator.userAgent;
-    var msie = ua.indexOf("MSIE ");
-
-    if (msie > 0 || !!navigator.userAgent.match(/Trident.*rv\:11\./))
-    {
-        txtArea1.document.open("txt/html", "replace");
-        txtArea1.document.write(tab_text);
-        txtArea1.document.close();
-        txtArea1.focus();
-        sa = txtArea1.document.execCommand("SaveAs", true, "Say Thanks to Sumit.xls");
-    } else
-        sa = window.open('data:application/vnd.ms-excel,' + encodeURIComponent(tab_text));
+	sa = window.open('data:application/vnd.ms-excel,' + encodeURIComponent(tab_text));
 
     return (sa);
 };
